@@ -37,6 +37,8 @@ function patch(form) {
     
     return fetch(`${dogsURL}/${form.id}`, configObject)
     .then(resp => resp.json())
+    // to autorefresh
+    .then(renderDogs())
     .catch(function(error) {
         console.log("Updating the dog in the database didn't work");
         console.error(error);
